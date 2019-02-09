@@ -1,0 +1,9 @@
+ Design of the basic file system
+
+Overview: This file system is written to demonstate basic interactions across different parts of file system and how all the structures are related to each other and what it takes to write a basic file system. This is designed to be basic to keep the components simple to allow the interactions clear and understandable.
+
+file_system_type: REgistration of file system requires a file_system_type structure that defines it's name. It checks that it is uniques and this type of filesystem is not already registered with kernel. It is then added to the list of types of file systems. It must provide mount function that will be called at mount time. This information is availabe through /proc/filesystems. These types are maintained in a linked list and it is protected by file_systems_lock.
+
+super_block: It stores information related to file system like blocksize, filesystem type, super block operations that can be carried on the file system, max file size,root of the filesystem, Filesystem Magic and private member which can be used for specific type of file system. 
+
+
